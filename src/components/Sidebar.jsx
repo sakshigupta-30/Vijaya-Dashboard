@@ -14,7 +14,6 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     <div className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className="sidebar-header">
         <h2>Vijaya Studio</h2>
-        <button className="close-btn" onClick={toggleSidebar}><FaTimes /></button>
       </div>
 
       <div className="sidebar-body">
