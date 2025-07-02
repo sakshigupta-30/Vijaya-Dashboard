@@ -1,0 +1,53 @@
+.plans-container {
+  padding: 20px;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.plans-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.payment-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.edit-btn {
+  padding: 6px 12px;
+  font-size: 13px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--button-bg);
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+table thead th,
+table td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+}

@@ -1,0 +1,97 @@
+.settings-container {
+  position: relative;
+  z-index: 10;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #fff;  /* Light mode container bg */
+  color: #000;             /* Light mode text */
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.settings-title {
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+.settings-section {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-section label {
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: inherit;
+}
+
+.settings-section input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #fff;  /* Light mode input bg */
+  color: #000;             /* Light mode input text */
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.settings-section input::placeholder {
+  color: #999;
+}
+
+.settings-save-btn {
+  background-color: #2563eb;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.settings-save-btn:hover {
+  background-color: #1e4ed8;
+}
+
+/* === Dark mode overrides === */
+
+[data-theme='dark'] .settings-container {
+  background-color: #121212;  /* Dark mode container bg same as page */
+  color: #e0e0e0;
+  box-shadow: none;
+}
+
+[data-theme='dark'] .settings-title {
+  color: #e0e0e0;
+}
+
+[data-theme='dark'] .settings-section label {
+  color: #e0e0e0;
+}
+
+[data-theme='dark'] .settings-section input {
+  background-color: #3a3a3a;  /* Gray input background */
+  border: 1px solid #555;     /* Dark border */
+  color: #fff;                /* White text */
+}
+
+[data-theme='dark'] .settings-section input::placeholder {
+  color: #aaa;                /* Lighter gray placeholder */
+}
+
+[data-theme='dark'] .settings-save-btn {
+  background-color: #3b82f6;
+  color: #fff;
+  box-shadow: 0 0 8px #3b82f6cc;
+}
+
+[data-theme='dark'] .settings-save-btn:hover {
+  background-color: #2563eb;
+  box-shadow: 0 0 10px #2563ebcc;
+}
