@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: window.location.hostname==="localhost" ?'http://localhost:5000/api':'/api',
+  baseURL: window.location.hostname==="localhost" ?'http://localhost:5000/api':'https://vijaya-backend.vercel.app/api',
   withCredentials: true // important for httpOnly cookie refresh
 });
 api.interceptors.request.use(config => {
