@@ -56,15 +56,15 @@ export const AuthProvider = ({ children }) => {
         try {
             const res = await api.get("/auth/me"); // must use api, not axios
             console.log("Response:", res.data);
-            // setUser(res.data.user);
-            // navigate('/videos');
+            setUser(res.data.user);
+            navigate('/videos');
         } catch (err) {
             console.error("Error:", err);
         }
     };
     // Attach access token to outgoing requests
     useEffect(() => {
-        // testRequest();
+        testRequest();
         const interceptor = api.interceptors.request.use(config => {
             const token = localStorage.getItem("AccessToken");
             // console.log("TOKEN FOUND:", token);
