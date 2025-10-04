@@ -78,7 +78,7 @@ const Videos = () => {
 
 
   return (
-    <div className="min-h-screen bg-black text-white px-6 py-12">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white px-6 py-12">
       {/* Page Title */}
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-medium text-white tracking-tight">
