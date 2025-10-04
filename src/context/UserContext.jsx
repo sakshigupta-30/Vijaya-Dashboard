@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import api from '../api/axiosApi';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 const AuthContext = createContext(undefined);
 
 export const AuthProvider = ({ children }) => {
@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
     const [accessToken, setAccessToken] = useState(null);
     const [refreshToken, setRefreshToken] = useState(null);
     const [loading, setLoading] = useState(true);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     // Try to refresh on app load (cookie-based refresh)
     useEffect(() => {
         (async () => {
@@ -21,12 +21,16 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     async function login(email, password) {
-        const res = await api.post('/auth/login', { email, password });
+        try{
+            const res = await api.post('/auth/login', { email, password });
         localStorage.setItem('AccessToken', res.data.accessToken);
         localStorage.setItem('RefreshToken', res.data.user?.refreshToken);
         setAccessToken(res.data.accessToken);
         setRefreshToken(res.data.user?.refreshToken)
         setUser(res.data.user);
+        }catch(e){
+            throw new Error(e);
+        }
     }
 
     async function signup(data) {
@@ -57,7 +61,7 @@ export const AuthProvider = ({ children }) => {
             const res = await api.get("/auth/me"); // must use api, not axios
             console.log("Response:", res.data);
             setUser(res.data.user);
-            navigate('/videos');
+            // navigate('/videos');
         } catch (err) {
             console.error("Error:", err);
         }

@@ -44,7 +44,7 @@ const LiveClasses = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white px-6 py-12">
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-purple-400 tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-medium text-white tracking-tight">
           🎥 Live Zumba Classes
         </h1>
         <p className="text-gray-400 mt-2 text-lg">
@@ -70,7 +70,7 @@ const LiveClasses = () => {
               className="p-6 bg-gray-900 rounded-2xl shadow-lg border border-gray-800 hover:shadow-purple-700/50 transition"
             >
               <div className="flex justify-between items-center mb-2">
-                <h2 className="text-xl font-semibold text-purple-400">{cls.title}</h2>
+                <h2 className="text-xl font-semibold text-white">{cls.title}</h2>
                 <span className="text-gray-400 text-sm">
                   {start.format("MMM D, h:mm A")}
                 </span>

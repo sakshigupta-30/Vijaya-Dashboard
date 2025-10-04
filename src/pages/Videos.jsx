@@ -67,21 +67,21 @@ const Videos = () => {
   const closeModal = () => setSelectedVideo(null);
 
   const handleFullscreen = () => {
-  const el = selectedVideo.isDrive ? iframeRef.current : videoRef.current;
+    const el = selectedVideo.isDrive ? iframeRef.current : videoRef.current;
 
-  if (!document.fullscreenElement) {
-    el.requestFullscreen?.();
-  } else {
-    document.exitFullscreen?.();
-  }
-};
+    if (!document.fullscreenElement) {
+      el.requestFullscreen?.();
+    } else {
+      document.exitFullscreen?.();
+    }
+  };
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white px-6 py-12">
+    <div className="min-h-screen bg-black text-white px-6 py-12">
       {/* Page Title */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-purple-400 tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-medium text-white tracking-tight">
           Zumba Workout Plan
         </h1>
         <p className="text-gray-400 mt-2 text-lg">
@@ -91,34 +91,35 @@ const Videos = () => {
 
       {/* Videos Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {videos.map((video) => (
-          <div
-            key={video.id}
-            className="group relative rounded-2xl overflow-hidden shadow-lg shadow-purple-900/30 hover:shadow-purple-700/40 transition duration-300 bg-gray-900 border border-gray-800 cursor-pointer"
-            onClick={() => setSelectedVideo(video)}
-          >
-            {/* Thumbnail */}
-            <img
-              src={video.thumbnail}
-              alt={video.title}
-              className="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500"
-            />
+  {videos.map((video) => (
+    <div
+      key={video.id}
+      className="group relative rounded-xl overflow-hidden border border-gray-700 bg-neutral-900 hover:border-gray-500 transition-all duration-300 cursor-pointer shadow-md hover:shadow-xl"
+      onClick={() => setSelectedVideo(video)}
+    >
+      {/* Thumbnail */}
+      <img
+        src={video.thumbnail}
+        alt={video.title}
+        className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+      />
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 flex items-center justify-center transition">
-              <PlayCircle className="w-16 h-16 text-purple-400 group-hover:scale-110 transition" />
-            </div>
-
-            {/* Video Info */}
-            <div className="p-5">
-              <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-purple-400 transition">
-                {video.title}
-              </h3>
-              <p className="text-sm text-gray-400">{video.duration}</p>
-            </div>
-          </div>
-        ))}
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 flex items-center justify-center transition">
+        <PlayCircle className="w-14 h-14 text-white opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-transform" />
       </div>
+
+      {/* Video Info */}
+      <div className="p-3">
+        <h3 className="text-base font-medium text-gray-100 mb-1 group-hover:text-white transition-colors">
+          {video.title}
+        </h3>
+        <p className="text-sm text-gray-400">{video.duration}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
 
       {/* Modal */}
       {selectedVideo && (
@@ -130,7 +131,7 @@ const Videos = () => {
             {/* Close Button */}
             <button
               onClick={closeModal}
-              className="absolute top-4 left-4 text-white hover:text-purple-400 transition z-10"
+              className="absolute top-4 left-4 text-white hover:text-white transition z-10"
             >
               <X className="w-8 h-8" />
             </button>
@@ -138,35 +139,35 @@ const Videos = () => {
             {/* Fullscreen Button */}
             <button
               onClick={handleFullscreen}
-              className="absolute bottom-10 right-4 text-white hover:text-purple-400 transition z-10"
+              className="absolute bottom-10 right-4 text-white hover:text-white transition z-10"
             >
               <Maximize className="w-7 h-7" />
             </button>
 
             {/* Video Player */}
             <div className="relative w-full pt-[56.25%]"> {/* 16:9 aspect ratio */}
-  {selectedVideo.isDrive ? (
-    <iframe
-      src={selectedVideo.src}
-      allow="autoplay"
-      allowFullScreen
-      className="absolute top-0 left-0 w-full h-full rounded-xl"
-    ></iframe>
-  ) : (
-    <video
-      ref={videoRef}
-      src={selectedVideo.src}
-      controls
-      autoPlay
-      className="absolute top-0 left-0 w-full h-full rounded-xl"
-    ></video>
-  )}
-</div>
+              {selectedVideo.isDrive ? (
+                <iframe
+                  src={selectedVideo.src}
+                  allow="autoplay"
+                  allowFullScreen
+                  className="absolute top-0 left-0 w-full h-full rounded-xl"
+                ></iframe>
+              ) : (
+                <video
+                  ref={videoRef}
+                  src={selectedVideo.src}
+                  controls
+                  autoPlay
+                  className="absolute top-0 left-0 w-full h-full rounded-xl"
+                ></video>
+              )}
+            </div>
 
 
             {/* Video Title */}
             <div className="p-5">
-              <h2 className="text-xl font-bold text-purple-400">
+              <h2 className="text-xl font-bold text-white">
                 {selectedVideo.title}
               </h2>
               <p className="text-gray-400 text-sm">{selectedVideo.duration}</p>

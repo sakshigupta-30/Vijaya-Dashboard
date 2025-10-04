@@ -20,8 +20,13 @@ const AuthPage = () => {
     setLoading(true);
     try {
       if (isLogin) {
-        await login(email, password);
+        try{
+          await login(email, password);
         navigate("/videos");
+        }catch(e){
+          console.log("See",e);
+          toast.error(e?.response?.data?.message || "Login failed");
+        }
       } else {
         await signup({ name, email, password });
         navigate("/videos");
@@ -34,10 +39,10 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-950 text-white px-6">
+    <div className="min-h-screen flex items-center justify-center bg-black text-white px-6">
       <div className="w-full max-w-md bg-gray-900/80 backdrop-blur-xl border border-gray-800 shadow-lg shadow-purple-900/30 rounded-2xl p-8">
         {/* Title */}
-        <h1 className="text-3xl font-extrabold text-center mb-6 text-purple-400">
+        <h1 className="text-3xl font-extrabold text-center mb-6 text-white">
           {isLogin ? "Welcome Back 👋" : "Create Account 🚀"}
         </h1>
         <p className="text-gray-400 text-center mb-8 text-sm">
@@ -59,7 +64,7 @@ const AuthPage = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 disabled={loading}
-                className="mt-1 w-full p-3 rounded-xl bg-gray-800 text-white border border-gray-700 focus:ring-2 focus:ring-purple-500 outline-none disabled:opacity-50"
+                className="mt-1 w-full p-3 rounded-xl bg-transparent text-white border border-gray-700 focus:ring-2 focus:ring-white outline-none disabled:opacity-50"
               />
             </div>
           )}
@@ -74,7 +79,7 @@ const AuthPage = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               disabled={loading}
-              className="mt-1 w-full p-3 rounded-xl bg-gray-800 text-white border border-gray-700 focus:ring-2 focus:ring-purple-500 outline-none disabled:opacity-50"
+              className="mt-1 w-full p-3 rounded-xl bg-transparent text-white border border-gray-700 focus:ring-2 focus:ring-white outline-none disabled:opacity-50"
             />
           </div>
 
@@ -88,12 +93,12 @@ const AuthPage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               disabled={loading}
-              className="mt-1 w-full p-3 rounded-xl bg-gray-800 text-white border border-gray-700 focus:ring-2 focus:ring-purple-500 outline-none disabled:opacity-50 pr-12"
+              className="mt-1 w-full p-3 rounded-xl bg-transparent text-white border border-gray-700 focus:ring-2 focus:ring-white outline-none disabled:opacity-50 pr-12"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-400 hover:text-purple-400 transition"
+              className="absolute top-12 right-3 transform -translate-y-1/2 text-gray-400 hover:text-white transition"
             >
               {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
             </button>
@@ -103,8 +108,8 @@ const AuthPage = () => {
           <button
             type="submit"
             disabled={loading}
-            className={`w-full py-3 rounded-xl transition text-lg font-semibold shadow-md shadow-purple-800/40 
-              ${loading ? "bg-purple-400 cursor-not-allowed" : "bg-purple-600 hover:bg-purple-700"}`}
+            className={`w-full mt-2 py-3 bg-white text-black cursor-pointer rounded-xl transition text-lg font-semibold shadow-md 
+              ${loading ? "bg-white cursor-not-allowed" : "bg-whitehover:white"}`}
           >
             {loading ? "Loading..." : isLogin ? "Login" : "Sign Up"}
           </button>
@@ -135,7 +140,7 @@ const AuthPage = () => {
           {isLogin ? "Don’t have an account?" : "Already have an account?"}{" "}
           <span
             onClick={() => !loading && setIsLogin(!isLogin)}
-            className="text-purple-400 font-semibold cursor-pointer hover:underline"
+            className="text-white font-semibold cursor-pointer hover:underline"
           >
             {isLogin ? "Sign up" : "Login"}
           </span>

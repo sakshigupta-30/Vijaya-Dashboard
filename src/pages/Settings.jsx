@@ -13,7 +13,7 @@ const Settings = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white px-6 py-12">
-      <h1 className="text-4xl font-bold text-purple-400 mb-8">Settings</h1>
+      <h1 className="text-4xl font-bold text-white mb-8">Settings</h1>
 
       <div className="flex flex-col md:flex-row gap-6 max-w-6xl mx-auto">
         {/* Sidebar */}
@@ -21,7 +21,7 @@ const Settings = () => {
           <ul className="space-y-4">
             <li
               className={`flex items-center gap-2 p-3 rounded-xl cursor-pointer ${
-                activeTab === "profile" ? "bg-purple-800" : "hover:bg-gray-800"
+                activeTab === "profile" ? "bg-white text-black" : "hover:bg-gray-800"
               }`}
               onClick={() => setActiveTab("profile")}
             >
@@ -29,7 +29,7 @@ const Settings = () => {
             </li>
             <li
               className={`flex items-center gap-2 p-3 rounded-xl cursor-pointer ${
-                activeTab === "account" ? "bg-purple-800" : "hover:bg-gray-800"
+                activeTab === "account" ? "bg-white text-black" : "hover:bg-gray-800"
               }`}
               onClick={() => setActiveTab("account")}
             >
@@ -37,7 +37,7 @@ const Settings = () => {
             </li>
             <li
               className={`flex items-center gap-2 p-3 rounded-xl cursor-pointer ${
-                activeTab === "subscription" ? "bg-purple-800" : "hover:bg-gray-800"
+                activeTab === "subscription" ? "bg-white text-black" : "hover:bg-gray-800"
               }`}
               onClick={() => setActiveTab("subscription")}
             >
@@ -45,7 +45,7 @@ const Settings = () => {
             </li>
             <li
               className={`flex items-center gap-2 p-3 rounded-xl cursor-pointer ${
-                activeTab === "notifications" ? "bg-purple-800" : "hover:bg-gray-800"
+                activeTab === "notifications" ? "bg-white text-black" : "hover:bg-gray-800"
               }`}
               onClick={() => setActiveTab("notifications")}
             >
@@ -62,7 +62,7 @@ const Settings = () => {
           {/* Profile Tab */}
           {activeTab === "profile" && (
             <div>
-              <h2 className="text-2xl font-bold text-purple-400 mb-4">Profile Settings</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">Profile Settings</h2>
               <div className="flex flex-col gap-4">
                 <div>
                   <label className="block text-gray-400 mb-1">Name</label>
@@ -70,7 +70,7 @@ const Settings = () => {
                     type="text"
                     value={profile.name}
                     onChange={(e) => setProfile({ ...profile, name: e.target.value })}
-                    className="w-full p-3 rounded-xl bg-gray-900 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full p-3 rounded-xl bg-gray-900 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-white"
                   />
                 </div>
                 <div>
@@ -79,10 +79,10 @@ const Settings = () => {
                     type="email"
                     value={profile.email}
                     onChange={(e) => setProfile({ ...profile, email: e.target.value })}
-                    className="w-full p-3 rounded-xl bg-gray-900 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full p-3 rounded-xl bg-gray-900 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-white"
                   />
                 </div>
-                <button className="mt-4 bg-purple-500 hover:bg-purple-600 py-3 px-6 rounded-xl font-semibold transition">
+                <button className="mt-4 bg-white hover:bg-white text-black py-3 px-6 rounded-xl font-semibold transition">
                   Save Changes
                 </button>
               </div>
@@ -92,14 +92,14 @@ const Settings = () => {
           {/* Account Tab */}
           {activeTab === "account" && (
             <div>
-              <h2 className="text-2xl font-bold text-purple-400 mb-4">Account Settings</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">Account Settings</h2>
               <div className="flex flex-col gap-4">
                 <div>
                   <label className="block text-gray-400 mb-1">Password</label>
                   <input
                     type="password"
                     placeholder="New Password"
-                    className="w-full p-3 rounded-xl bg-gray-900 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full p-3 rounded-xl bg-gray-900 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-white"
                   />
                 </div>
                 <div>
@@ -107,7 +107,7 @@ const Settings = () => {
                   <input
                     type="password"
                     placeholder="Confirm Password"
-                    className="w-full p-3 rounded-xl bg-gray-900 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full p-3 rounded-xl bg-gray-900 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-white"
                   />
                 </div>
                 <div>
@@ -115,10 +115,10 @@ const Settings = () => {
                   <input
                     type="password"
                     placeholder="Confirm Password"
-                    className="w-full p-3 rounded-xl bg-gray-900 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full p-3 rounded-xl bg-gray-900 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-white"
                   />
                 </div>
-                <button className="mt-4 bg-purple-500 hover:bg-purple-600 py-3 px-6 rounded-xl font-semibold transition">
+                <button className="mt-4 bg-white hover:bg-white text-black py-3 px-6 rounded-xl font-semibold transition">
                   Update Password
                 </button>
               </div>
@@ -128,9 +128,9 @@ const Settings = () => {
           {/* Subscription Tab */}
           {activeTab === "subscription" && (
             <div>
-              <h2 className="text-2xl font-bold text-purple-400 mb-4">Subscription Plan</h2>
-              <p className="text-gray-400 mb-6">You are currently on the <span className="text-purple-400 font-semibold">Premium Plan</span>.</p>
-              <button className="bg-purple-500 hover:bg-purple-600 py-3 px-6 rounded-xl font-semibold transition">
+              <h2 className="text-2xl font-bold text-white mb-4">Subscription Plan</h2>
+              <p className="text-gray-400 mb-6">You are currently on the <span className="text-white font-semibold">Premium Plan</span>.</p>
+              <button className="bg-white hover:bg-white text-black py-3 px-6 rounded-xl font-semibold transition">
                 Manage Subscription
               </button>
             </div>
@@ -139,14 +139,14 @@ const Settings = () => {
           {/* Notifications Tab */}
           {activeTab === "notifications" && (
             <div>
-              <h2 className="text-2xl font-bold text-purple-400 mb-4">Notification Settings</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">Notification Settings</h2>
               <div className="flex flex-col gap-4">
                 <label className="flex items-center gap-2">
                   <input
                     type="checkbox"
                     checked={notifications.reminders}
                     onChange={() => setNotifications({ ...notifications, reminders: !notifications.reminders })}
-                    className="accent-purple-500 w-5 h-5"
+                    className="accent-white w-5 h-5"
                   />
                   Receive class reminders
                 </label>
@@ -155,7 +155,7 @@ const Settings = () => {
                     type="checkbox"
                     checked={notifications.promotions}
                     onChange={() => setNotifications({ ...notifications, promotions: !notifications.promotions })}
-                    className="accent-purple-500 w-5 h-5"
+                    className="accent-white w-5 h-5"
                   />
                   Receive promotional offers
                 </label>
